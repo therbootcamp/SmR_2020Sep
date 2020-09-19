@@ -183,7 +183,7 @@ summary {
 <col width='10%'>
 <tr style="border:none">
 <td style="display:block;width:100%;text-align:left;vertical-align:bottom;padding:0;margin:0;border:none" nowrap>
-<font style='font-style:normal'>Statistik mit R</font><br> <a href='https://therbootcamp.github.io/SmR_2020Mai/'> <i class='fas fa-clock' style='font-size:.9em;' ></i> </a> <a href='https://therbootcamp.github.io'> <i class='fas fa-home' style='font-size:.9em;'></i> </a> <a href='mailto:therbootcamp@gmail.com'> <i class='fas fa-envelope' style='font-size: .9em;'></i> </a> <a href='https://www.linkedin.com/company/basel-r-bootcamp/'> <i class='fab fa-linkedin' style='font-size: .9em;'></i> </a> <a href='https://therbootcamp.github.io'> <font style='font-style:normal'>The R Bootcamp</font> </a>
+<font style='font-style:normal'>Statistik mit R</font><br> <a href='https://therbootcamp.github.io/SmR_2020Sep/'> <i class='fas fa-clock' style='font-size:.9em;' ></i> </a> <a href='https://therbootcamp.github.io'> <i class='fas fa-home' style='font-size:.9em;'></i> </a> <a href='mailto:therbootcamp@gmail.com'> <i class='fas fa-envelope' style='font-size: .9em;'></i> </a> <a href='https://www.linkedin.com/company/basel-r-bootcamp/'> <i class='fab fa-linkedin' style='font-size: .9em;'></i> </a> <a href='https://therbootcamp.github.io'> <font style='font-style:normal'>The R Bootcamp</font> </a>
 </td>
 <td style="width:100%;vertical-align:bottom;text-align:right;padding:0;margin:0;border:none">
 <img src='https://raw.githubusercontent.com/therbootcamp/therbootcamp.github.io/master/_sessions/_image/by-sa.png' style='height:15px;width:80px'/>
@@ -245,7 +245,7 @@ schools &lt;- schools %&gt;% mutate_if(is.character, factor)</code></pre>
 </div>
 <div id="b---rechnen-eines-linearen-gemischten-modells" class="section level3">
 <h3>B - Rechnen Eines Linearen Gemischten Modells</h3>
-<p>Im ersten Teil dieses Practicals arbeiten wir mit dem <code>tom</code> Datensatz aus den Folien und testen die Wirkung des <code>zustand</code>s einer Person (<code>nuechtern</code> vs. <code>betrunken</code>) auf ihre <code>tomatometer</code>-Bewertung.</p>
+<p>Im ersten Teil dieses Practicals arbeiten wir mit dem <code>tom</code> Datensatz aus den Folien und testen die Wirkung des <code>zustand</code>s einer Person (<code>nuechtern</code> vs. <code>betrunken</code>) auf ihre <code>tomatometer</code>-Bewertung.</p>
 <ol style="list-style-type: decimal">
 <li>Rechne ein Modell mit nur festen Effekten aus, in welchem du <code>tomatometers</code> mit dem <code>zustand</code> vorhersagst. Speichere das Ergebnis als <code>FE_mod</code> und schaue dir das Ergebnis an.</li>
 </ol>
@@ -399,7 +399,7 @@ ci_mod &lt;- confint(XXX)</code></pre>
 <pre class="r"><code># Berechne p-Werte für die festen Effekte
 p_value(XXX)</code></pre>
 <ol start="9" style="list-style-type: decimal">
-<li>Statt einem Wald test wird auch die <a href="https://www.jstatsoft.org/article/view/v059i09">Kenward-Roger Approximation</a> empfohlen. Um die p-Werte mit dieser Methode zu berechnen, können wir in der <code>p_value()</code> Funktion <code>method = &quot;kenward&quot;</code> setzen. Da dies aber sehr lange dauern kann, musst du diese Aufgabe nicht ausführen.</li>
+<li>Statt einem Wald test wird auch die <a href="https://www.jstatsoft.org/article/view/v059i09">Kenward-Roger Approximation</a> empfohlen. Um die p-Werte mit dieser Methode zu berechnen, können wir in der <code>p_value()</code> Funktion <code>method = "kenward"</code> setzen. Da dies aber sehr lange dauern kann, musst du diese Aufgabe nicht ausführen.</li>
 </ol>
 <pre class="r"><code># Berechne p-Werte für die festen Effekte
 p_value(RI_mod, method = &quot;kenward&quot;)</code></pre>
@@ -723,7 +723,7 @@ LMM_plot</code></pre>
 </tr>
 <tr class="odd">
 <td align="left">zustand</td>
-<td align="left">Der Zustand, in welchem die Bewertungen durchgeführt wurden (<code>&quot;nuechtern&quot;</code>, oder <code>&quot;betrunken&quot;</code>)</td>
+<td align="left">Der Zustand, in welchem die Bewertungen durchgeführt wurden (<code>"nuechtern"</code>, oder <code>"betrunken"</code>)</td>
 </tr>
 <tr class="even">
 <td align="left">tomatometer</td>
@@ -768,11 +768,11 @@ LMM_plot</code></pre>
 </tr>
 <tr class="even">
 <td align="left">class</td>
-<td align="left">Schulklasse (geschachtelt unter <code>school</code>; levels <code>&quot;a&quot;</code>, <code>&quot;b&quot;</code>, <code>&quot;c&quot;</code> und <code>&quot;d&quot;</code>)</td>
+<td align="left">Schulklasse (geschachtelt unter <code>school</code>; levels <code>"a"</code>, <code>"b"</code>, <code>"c"</code> und <code>"d"</code>)</td>
 </tr>
 <tr class="odd">
 <td align="left">school</td>
-<td align="left">Schule (levels <code>&quot;I&quot;</code>, <code>&quot;II&quot;</code>, <code>&quot;III&quot;</code>, <code>&quot;IV&quot;</code>)</td>
+<td align="left">Schule (levels <code>"I"</code>, <code>"II"</code>, <code>"III"</code>, <code>"IV"</code>)</td>
 </tr>
 </tbody>
 </table>
@@ -797,7 +797,7 @@ LMM_plot</code></pre>
 </tr>
 <tr class="even">
 <td align="left">CancerStage</td>
-<td align="left">Vier unterschiedliche Krebsstadien (levels <code>&quot;I&quot;</code>, <code>&quot;II&quot;</code>, <code>&quot;III&quot;</code>, <code>&quot;IV&quot;</code>)</td>
+<td align="left">Vier unterschiedliche Krebsstadien (levels <code>"I"</code>, <code>"II"</code>, <code>"III"</code>, <code>"IV"</code>)</td>
 </tr>
 <tr class="odd">
 <td align="left">LengthofStay</td>
@@ -829,23 +829,23 @@ LMM_plot</code></pre>
 <tbody>
 <tr class="odd">
 <td align="left"><code>tidyverse</code></td>
-<td align="left"><code>install.packages(&quot;tidyverse&quot;)</code></td>
+<td align="left"><code>install.packages("tidyverse")</code></td>
 </tr>
 <tr class="even">
 <td align="left"><code>lme4</code></td>
-<td align="left"><code>install.packages(&quot;lme4&quot;)</code></td>
+<td align="left"><code>install.packages("lme4")</code></td>
 </tr>
 <tr class="odd">
 <td align="left"><code>performance</code></td>
-<td align="left"><code>install.packages(&quot;performance&quot;)</code></td>
+<td align="left"><code>install.packages("performance")</code></td>
 </tr>
 <tr class="even">
 <td align="left"><code>parameters</code></td>
-<td align="left"><code>install.packages(&quot;parameters&quot;)</code></td>
+<td align="left"><code>install.packages("parameters")</code></td>
 </tr>
 <tr class="odd">
 <td align="left"><code>pbkrtest</code></td>
-<td align="left"><code>install.packages(&quot;pbkrtest&quot;)</code></td>
+<td align="left"><code>install.packages("pbkrtest")</code></td>
 </tr>
 </tbody>
 </table>

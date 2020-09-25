@@ -212,7 +212,7 @@ summary {
 <div id="a---setup" class="section level3">
 <h3>A - Setup</h3>
 <ol style="list-style-type: decimal">
-<li><p>Öffne dein <code>TheRBootcamp</code> R project. Es sollte die Ordner <code>1_Data</code> und <code>2_Code</code> enthalten. Stelle sicher, dass du alle Datensätze, welche im <code>Datensätze</code> Tab aufgelistet sind, in deinem <code>1_Data</code> Ordner hast.</p></li>
+<li><p>Öffne dein <code>TheRBootcamp</code> R project.</p></li>
 <li><p>Öffne ein neues R Skript. Schreibe deinen Namen, das Datum und “Lineare Modelle II Practical” als Kommentare an den Anfang des Skripts.</p></li>
 </ol>
 <pre class="r"><code>## NAME
@@ -233,8 +233,8 @@ wein &lt;- read_csv(file = &quot;1_Data/wein.csv&quot;)</code></pre>
 <pre class="r"><code># Konvertiere alle character zu factor
 wein &lt;- wein %&gt;% mutate_if(is.character, factor)</code></pre>
 </div>
-<div id="b---gruppenvergleiche-t.test-versus-regression" class="section level3">
-<h3>B - Gruppenvergleiche: t.test versus Regression</h3>
+<div id="b---gruppenvergleiche-t-test-versus-regression" class="section level3">
+<h3>B - Gruppenvergleiche: <i>t</i>-Test versus Regression</h3>
 <ol style="list-style-type: decimal">
 <li>In diesem Abschnitt geht es darum den Effekt der <code>Farbe</code> (Prädiktor) des Weins, rot oder weiss, auf die <code>Qualität</code> des Weines zu prüfen. Verwende hierzu zunächst den Code unten um zwei Vektoren zu erstellen, die jeweils die Qualitätswerte für weisse und rote Weine beinhalten.</li>
 </ol>
@@ -242,33 +242,33 @@ wein &lt;- wein %&gt;% mutate_if(is.character, factor)</code></pre>
 weiss &lt;- wein %&gt;% filter(Farbe == &#39;weiss&#39;) %&gt;% pull(Qualität)
 rot &lt;- wein %&gt;% filter(Farbe == &#39;rot&#39;) %&gt;% pull(Qualität)</code></pre>
 <ol start="2" style="list-style-type: decimal">
-<li>Verwende nun das <code>t.test()</code> template unten um die beiden Vektoren mit einem t-Test miteinander zu vergleichen. Du brauchst das Ergebnis nicht zu speichern.</li>
+<li>Verwende nun das <code>t.test()</code> template unten um die beiden Vektoren mit einem <i>t</i>-Test miteinander zu vergleichen. Du brauchst das Ergebnis nicht zu speichern.</li>
 </ol>
 <pre class="r"><code># t-test
 t.test(x = XX, y = XX)</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li><p>Was verrät dir der Output des t-Tests über den Unterschied weisser und roter Weine in der wahrgenommenen Qualität? Die Antwort findest du in der zweiten Zeile (beginnend mit <code>t=..</code>) zusammen mit der letzten Zeile.</p></li>
-<li><p>Ja, weisse Weine wurden <code>0.241886</code> (Differenz der beiden Mittelwerte) Punkte als Qualitativ wertiger wahrgenommen und dieser Unterschied ist signifikant. Versuche nun das selbe Ergebnis mit einer Regression zu erzielen.</p></li>
+<li><p>Weisse Weine wurden <code>0.241886</code> (Differenz der beiden Mittelwerte) Punkte als qualitativ wertiger wahrgenommen und dieser Unterschied ist signifikant. Versuche nun das selbe Ergebnis mit einer Regression zu erzielen. Prädiziere hierzu <code>Qualität</code> durch <code>Farbe</code>.</p></li>
 </ol>
 <pre class="r"><code># Regression
 wein_lm &lt;- lm(formula = XX ~ XX, 
               data = XX)</code></pre>
 <ol start="5" style="list-style-type: decimal">
 <li><p>Printe zunächst einmal das Objekt und betrachte die Regressionsgewichte. Kommen dir eine oder sogar beide der Zahlen bekannt vor?</p></li>
-<li><p>Genau, das Regressionsgewicht für <code>Farbe</code> spiegelt exakt den Unterschied der beiden Mittelwerte wieder. Was repräsentiert dann der Intercept? Den Wert derjenigen Kategorie, der R den Wert 0 zugewiesen hat. Dies ist bei ursprünglich <code>character</code> Variablen i.d.R. diejenige Kategorie die alphabetisch früher kommt, d.h., <code>'rot' &lt; 'weiss'</code>.</p></li>
-<li><p>Lasse dir jetzt die <code>summary()</code> für das Modell ausgeben und vergleiche Freiheitsgrade, t- und p-Wert mit denen aus dem t-Test.</p></li>
-<li><p>Die Werte im t-Test stimmen trotz der gleichen Schätzwerte für die Gewichte nicht ganz überein. Dies liegt daran, dass die <code>t.test()</code> Funktion per Default eine Variante rechnet die erlaubt, dass die Varianzen in den beiden Gruppen (rot und weiss) unterschiedlich sind, die Regression dagegen, geht stets davon aus, dass diese gleich sind, was wir im Detail in der Session zu robuste Statistiken besprechen werden. Rechne den t-Test noch einmal, diesmal mit dem zusätzlichen Argument <code>var.equal = TRUE</code>.</p></li>
+<li><p>Genau, das Regressionsgewicht für <code>Farbe</code> spiegelt exakt den Unterschied der beiden Mittelwerte wieder. Was repräsentiert dann der Intercept?: Den Wert derjenigen Kategorie, der R den Wert 0 zugewiesen hat. Dies ist bei ursprünglich <code>character</code> Variablen per Default diejenige Kategorie die alphabetisch früher kommt, d.h., <code>'rot' &lt; 'weiss'</code>.</p></li>
+<li><p>Lasse dir jetzt die <code>summary()</code> für das Modell ausgeben und vergleiche Freiheitsgrade, <i>t</i>- und p-Wert mit denen aus dem <i>t</si>-Test.</p></li>
+<li><p>Die Werte im t-Test stimmen trotz der gleichen Schätzwerte für die Gewichte nicht ganz überein. Dies liegt daran, dass die <code>t.test()</code> Funktion per Default eine Variante rechnet die erlaubt, dass die Varianzen in den beiden Gruppen (rot und weiss) unterschiedlich sind. Die Regression dagegen geht stets davon aus, dass diese gleich sind, was wir im Detail in der Session zu robuste Statistiken besprechen werden. Rechne den <i>t</i>-Test noch einmal, diesmal mit dem zusätzlichen Argument <code>var.equal = TRUE</code>.</p></li>
 </ol>
 <pre class="r"><code># t-test
 t.test(x = XX, y = XX, var.equal = )</code></pre>
 <ol start="9" style="list-style-type: decimal">
-<li>Ordnung ist eingekehrt. Alle Werte im t-test und der Regression sollten jetzt identisch sein, was daran liegt, dass die beiden Modelle nun exakt identisch sind.</li>
+<li>Ordnung ist eingekehrt. Alle Werte im <i>t</i>-test und der Regression sollten jetzt identisch sein, was daran liegt, dass die beiden Modelle nun exakt identisch sind.</li>
 </ol>
 </div>
 <div id="c---gruppenvergleiche-kodierung" class="section level3">
 <h3>C - Gruppenvergleiche: Kodierung</h3>
 <ol style="list-style-type: decimal">
-<li>Per Default verwendet R die sogenannte Dummy-Kodierung, in der eine Ausprägung den Wert 0 erhält und eine andere den Wert 1. Eine alternative Kodierung existiert in der Effektkodierung, die stattdessen die Werte -1 und 1 vergibt. Um die Konsequenzen dieser beiden Kodierungen direkt zu vergleichen, erstelle zunächst für jede Kodierung eine neue Variable im Datensatz unter Verwendung des Codes unten.</li>
+<li>Per Default verwendet R die Dummy-Kodierung, in der eine Ausprägung den Wert 0 erhält und eine andere den Wert 1. Eine alternative Kodierung existiert in der Effektkodierung, die stattdessen die Werte -1 und 1 vergibt. Um die Konsequenzen dieser beiden Kodierungen direkt zu vergleichen, erstelle zunächst für jede Kodierung eine neue Variable im Datensatz unter Verwendung des Codes unten.</li>
 </ol>
 <pre class="r"><code># Kodierungen der Farbe
 wein &lt;- wein %&gt;% mutate(Farbe_dummy = ifelse(Farbe == &#39;rot&#39;, 0, 1),
@@ -296,7 +296,7 @@ mean(weiss) - mean(rot) # gewicht farbe
 mean(weiss) - (mean(rot) + mean(weiss))/2 # gewicht farbe</code></pre>
 <ol start="5" style="list-style-type: decimal">
 <li><p>Vergleiche nun die <code>summary()</code> der beiden Modelle. Was unterscheidet sich, und was nicht?</p></li>
-<li><p>Die Kodierung hat ausgenommen die Skalierung des Regressionsgewichts und des zugehörigen Standardfehlers für Farbe keinen Einfluss. t-Wert und Signifikanz sind identisch. Einzig der Intercept ändert sich wesentlich, da er unter der Effektkodierung tatsächlich weiter von Null entfernt ist.</p></li>
+<li><p>Die Kodierung hat ausgenommen die Skalierung des Regressionsgewichts und des zugehörigen Standardfehlers keinen Einfluss. <i>t</i>-Wert und Signifikanz sind identisch. Einzig der Intercept ändert sich wesentlich, da er unter der Effektkodierung tatsächlich weiter von Null entfernt ist.</p></li>
 </ol>
 </div>
 <div id="c---interaktionen" class="section level3">
@@ -309,7 +309,7 @@ wein_lm &lt;- lm(formula = XX ~ XX * XX,
               data = XX)</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li><p>Printe das Objekt und betrachte die Gewichte. Wie interpretierst du die einzelnen Werte?</p></li>
-<li><p>Folgendermassen lassen sich die Gewichte interpretieren: Unter Berücksichtigung von Alkohol und der Interaktion, werden weisse Weine um <code>.7</code> besser bewertet. Unter Berücksichtigung der Farbe (d.h. für Farbe == ‘rot’) und der Interaktion, führt ein Anstieg von einem Volumenprozent zu einer Verbesserung der wahrgenommenen Qualität von <code>.36</code>. Unter Berücksichtigung von Farbe und Alkohol, führt die Interaktion, also das Produkt der beiden Prädiktoren zu einer Veränderung von <code>-.05</code>. Dies ist so zu interpretieren, dass der Effekt von Alkohol unter Weissweinen um genau diese Grösse kleiner ist. Dies bedeutet im Umkehrschluss dass der Effekt von Farbe unter hoch-alkoholischen Weinen kleiner ausfällt. Verwendet den Code unten um diese Ergebnisse zu visualisieren. Gelb bedeutet Weisswein, lila Rotwein.</p></li>
+<li><p>Die Gewichte lassen sich folgendermassen interpretieren: Unter Berücksichtigung von Alkohol und der Interaktion, werden weisse Weine um <code>.7</code> besser bewertet. Unter Berücksichtigung der Farbe (d.h. für Farbe == ‘rot’) und der Interaktion, führt ein Anstieg von einem Volumenprozent zu einer Verbesserung der wahrgenommenen Qualität von <code>.36</code>. Unter Berücksichtigung von Farbe und Alkohol, führt die Interaktion, also das Produkt der beiden Prädiktoren zu einer Veränderung von <code>-.05</code>. Dies ist so zu interpretieren, dass der Effekt von Alkohol unter Weissweinen um genau diese Grösse kleiner ist. Dies bedeutet im Umkehrschluss dass der Effekt von Farbe unter hoch-alkoholischen Weinen kleiner ausfällt. Verwendet den Code unten um diese Ergebnisse zu visualisieren. Gelb bedeutet Weisswein, lila Rotwein.</p></li>
 </ol>
 <pre class="r"><code># Visualisierung
 ggplot(data = wein, 
@@ -319,8 +319,8 @@ ggplot(data = wein,
   geom_smooth(data = wein %&gt;% filter(Farbe == &#39;weiss&#39;), method = &#39;lm&#39;) + 
   geom_smooth(data = wein %&gt;% filter(Farbe == &#39;rot&#39;), method = &#39;lm&#39;)</code></pre>
 <ol start="4" style="list-style-type: decimal">
-<li><p>Lasse dir nun die <code>summary()</code> anzeigen und inspiziere die t-Werte und Signifikanzen. Welche Prädiktoren sind signifikant?</p></li>
-<li><p>Alle drei Prädiktoren sind signifikant. t-Wert und Signifikanz sind am extremsten für <code>Alkohol</code>, jedoch ist das Gewicht für <code>Alkohol</code> nur halb so gross. Wie ist dies zu erklären?</p></li>
+<li><p>Lasse dir nun die <code>summary()</code> anzeigen und inspiziere die <i>t</i>-Werte und Signifikanzen. Welche Prädiktoren sind signifikant?</p></li>
+<li><p>Alle drei Prädiktoren sind signifikant. <i>t</i>-Wert und Signifikanz sind am extremsten für <code>Alkohol</code>, jedoch ist das Gewicht für <code>Alkohol</code> nur halb so gross. Wie ist dies zu erklären?</p></li>
 <li><p>Genau die Gewichte hängen auch von der Skalierung der Prädiktoren ab. Rechne nun die Regression noch einmal, aber diesmal mit skalierten Prädiktoren. Siehe Code unten.</p></li>
 </ol>
 <pre class="r"><code># Skalierungsfunktion
@@ -342,8 +342,8 @@ ggplot(data = wein %&gt;% mutate_if(is.numeric, skaliere),
   geom_smooth(data = wein %&gt;% mutate_if(is.numeric, skaliere) %&gt;% filter(Farbe == &#39;weiss&#39;), method = &#39;lm&#39;) + 
   geom_smooth(data = wein %&gt;% mutate_if(is.numeric, skaliere) %&gt;% filter(Farbe == &#39;rot&#39;), method = &#39;lm&#39;)</code></pre>
 <ol start="10" style="list-style-type: decimal">
-<li><p>Schaue dir nun die <code>summary()</code> an. Was hat sich verändert bzgl. t-Werten, Signifikanzen, und Standardfehlern, und R-squared?</p></li>
-<li><p>Ein grosser und in diesem Fall der Einzige Einfluss besteht auf die Variable <code>Farbe</code>, welche als einzige nicht mit standardisiert wurde. Vor der Standardisierung von <code>Alkohol</code> war Farbe beinahe perfekt mit der Interaktion korreliert, was zu einem extrem aufgeblasenen Standardfehler geführt hat. Die Standardisierung hat diese Korrelation jedoch stark reduziert, so dass der Standardfehler auf das Niveau der anderen Prädiktoren gefallen ist. In der Konklusion lohnt es sich beinahe immer die die Prädiktoren (oder auch das Kriterium) zu standardisieren, wenn ein Vergleich der Gewichte und Signifikanzen von Interesse ist.</p></li>
+<li><p>Schaue dir nun die <code>summary()</code> an. Was hat sich verändert bzgl. <i>t</i>-Werten, Signifikanzen, und Standardfehlern, und R-squared?</p></li>
+<li><p>Ein wesentlicher Einfluss besteht auf die Variable <code>Farbe</code>, welche als einzige nicht mit standardisiert wurde. Vor der Standardisierung von <code>Alkohol</code> war Farbe beinahe perfekt mit der Interaktion korreliert, was zu einem extrem aufgeblasenen Standardfehler geführt hat. Die Standardisierung hat diese Korrelation jedoch stark reduziert, so dass der Standardfehler auf das Niveau der anderen Prädiktoren gefallen ist. In der Konklusion lohnt es sich beinahe immer die Prädiktoren (oder auch das Kriterium) zu standardisieren, wenn ein Vergleich der Gewichte und Signifikanzen von Interesse ist.</p></li>
 </ol>
 </div>
 </div>

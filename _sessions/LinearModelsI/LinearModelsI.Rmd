@@ -302,7 +302,7 @@ ggplot(d,
 
 ---
 
-# Einfache lineare regression
+# Einfache lineare Regression
 
 .pull-left4[
 
@@ -988,7 +988,7 @@ mtext(c('Zweiseitig','Dichte','t'),side=c(3,2,1),font=c(2,1,1),line=c(0,0,.5))
 
 class: middle, center
 
-<h1><a href="">Lineare modelle mit R</a></h1>
+<h1><a href="">Lineare Modelle mit R</a></h1>
 
 ---
 
@@ -997,7 +997,7 @@ class: middle, center
 .pull-left4[
 
 <ul>
-  <li class="m1"><span>Modelle in R werden über <highm>formula</highm>s definiert.</span></li>
+  <li class="m1"><span>Modelle in R werden über einen <highm>formula</highm> Ausdruck definiert.</span></li>
 </ul>
 
 <font style="font-size:20px"><u>Syntax</u></p>
@@ -1414,5 +1414,5 @@ resid(naechte_lm)[1:5]
 
 class: middle, center
 
-<h1><a href="https://therbootcamp.github.io/SmR_2020Mai/_sessions/LinearModelsI/LinearModelsI_practical.html">Practical</a></h1>
+<h1><a href="https://therbootcamp.github.io/SmR_2020Sep/_sessions/LinearModelsI/LinearModelsI_practical.html">Practical</a></h1>
 

@@ -69,7 +69,7 @@ Am Ende des Practicals wirst du wissen...
 
 ### A - Setup
 
-1. Öffne dein `TheRBootcamp` R project. Es sollte die Ordner `1_Data` und `2_Code` enthalten. Stelle sicher, dass du alle Datensätze, welche im `Datensätze` Tab aufgelistet sind, in deinem `1_Data` Ordner hast. 
+1. Öffne dein `TheRBootcamp` R project. 
 
 2. Öffne ein neues R Skript. Schreibe deinen Namen, das Datum und "Lineare Modelle II Practical" als Kommentare an den Anfang des Skripts.
 
@@ -106,7 +106,7 @@ wein <- wein %>% mutate_if(is.character, factor)
 ```
 
 
-### B - Gruppenvergleiche: t.test versus Regression
+### B - Gruppenvergleiche: <i>t</i>-Test versus Regression
 
 1. In diesem Abschnitt geht es darum den Effekt der `Farbe` (Prädiktor) des Weins, rot oder weiss, auf die `Qualität` des Weines zu prüfen. Verwende hierzu zunächst den Code unten um zwei Vektoren zu erstellen, die jeweils die Qualitätswerte für weisse und rote Weine beinhalten. 
 
@@ -116,7 +116,7 @@ weiss <- wein %>% filter(Farbe == 'weiss') %>% pull(Qualität)
 rot <- wein %>% filter(Farbe == 'rot') %>% pull(Qualität)
 ```
 
-2. Verwende nun das `t.test()` template unten um die beiden Vektoren mit einem t-Test miteinander zu vergleichen. Du brauchst das Ergebnis nicht zu speichern. 
+2. Verwende nun das `t.test()` template unten um die beiden Vektoren mit einem <i>t</i>-Test miteinander zu vergleichen. Du brauchst das Ergebnis nicht zu speichern. 
 
 ```{r, eval = FALSE, echo = TRUE}
 # t-test
@@ -130,7 +130,7 @@ t.test(x = weiss, y = rot)
 
 3. Was verrät dir der Output des t-Tests über den Unterschied weisser und roter Weine in der wahrgenommenen Qualität? Die Antwort findest du in der zweiten Zeile (beginnend mit `t=..`) zusammen mit der letzten Zeile.  
 
-4. Ja, weisse Weine wurden `0.241886` (Differenz der beiden Mittelwerte) Punkte als Qualitativ wertiger wahrgenommen und dieser Unterschied ist signifikant. Versuche nun das selbe Ergebnis mit einer Regression zu erzielen. 
+4. Weisse Weine wurden `0.241886` (Differenz der beiden Mittelwerte) Punkte als qualitativ wertiger wahrgenommen und dieser Unterschied ist signifikant. Versuche nun das selbe Ergebnis mit einer Regression zu erzielen. Prädiziere hierzu `Qualität` durch `Farbe`.
 
 ```{r, eval = FALSE, echo = TRUE}
 # Regression
@@ -146,16 +146,16 @@ wein_lm <- lm(formula = Qualität ~ Farbe,
 
 5. Printe zunächst einmal das Objekt und betrachte die Regressionsgewichte. Kommen dir eine oder sogar beide der Zahlen bekannt vor?
 
-6. Genau, das Regressionsgewicht für `Farbe` spiegelt exakt den Unterschied der beiden Mittelwerte wieder. Was repräsentiert dann der Intercept? Den Wert derjenigen Kategorie, der R den Wert 0 zugewiesen hat. Dies ist bei ursprünglich `character` Variablen i.d.R. diejenige Kategorie die alphabetisch früher kommt, d.h., `'rot' < 'weiss'`.   
+6. Genau, das Regressionsgewicht für `Farbe` spiegelt exakt den Unterschied der beiden Mittelwerte wieder. Was repräsentiert dann der Intercept?: Den Wert derjenigen Kategorie, der R den Wert 0 zugewiesen hat. Dies ist bei ursprünglich `character` Variablen per Default diejenige Kategorie die alphabetisch früher kommt, d.h., `'rot' < 'weiss'`.   
 
-7. Lasse dir jetzt die `summary()` für das Modell ausgeben und vergleiche Freiheitsgrade, t- und p-Wert mit denen aus dem t-Test. 
+7. Lasse dir jetzt die `summary()` für das Modell ausgeben und vergleiche Freiheitsgrade, <i>t</i>- und p-Wert mit denen aus dem <i>t</si>-Test. 
 
 ```{r}
 # summary
 summary(wein_lm)
 ```
 
-8. Die Werte im t-Test stimmen trotz der gleichen Schätzwerte für die Gewichte nicht ganz überein. Dies liegt daran, dass die `t.test()` Funktion per Default eine Variante rechnet die erlaubt, dass die Varianzen in den beiden Gruppen (rot und weiss) unterschiedlich sind, die Regression dagegen, geht stets davon aus, dass diese gleich sind, was wir im Detail in der Session zu robuste Statistiken besprechen werden. Rechne den t-Test noch einmal, diesmal mit dem zusätzlichen Argument `var.equal = TRUE`.   
+8. Die Werte im t-Test stimmen trotz der gleichen Schätzwerte für die Gewichte nicht ganz überein. Dies liegt daran, dass die `t.test()` Funktion per Default eine Variante rechnet die erlaubt, dass die Varianzen in den beiden Gruppen (rot und weiss) unterschiedlich sind. Die Regression dagegen geht stets davon aus, dass diese gleich sind, was wir im Detail in der Session zu robuste Statistiken besprechen werden. Rechne den <i>t</i>-Test noch einmal, diesmal mit dem zusätzlichen Argument `var.equal = TRUE`.   
 
 ```{r, eval = FALSE, echo = TRUE}
 # t-test
@@ -167,11 +167,11 @@ t.test(x = XX, y = XX, var.equal = )
 t.test(x = weiss, y = rot, var.equal = TRUE)
 ```
 
-9. Ordnung ist eingekehrt. Alle Werte im t-test und der Regression sollten jetzt identisch sein, was daran liegt, dass die beiden Modelle nun exakt identisch sind. 
+9. Ordnung ist eingekehrt. Alle Werte im <i>t</i>-test und der Regression sollten jetzt identisch sein, was daran liegt, dass die beiden Modelle nun exakt identisch sind. 
 
 ### C - Gruppenvergleiche: Kodierung
 
-1. Per Default verwendet R die sogenannte Dummy-Kodierung, in der eine Ausprägung den Wert 0 erhält und eine andere den Wert 1. Eine alternative Kodierung existiert in der Effektkodierung, die stattdessen die Werte -1 und 1 vergibt. Um die Konsequenzen dieser beiden Kodierungen direkt zu vergleichen, erstelle zunächst für jede Kodierung eine neue Variable im Datensatz unter Verwendung des Codes unten. 
+1. Per Default verwendet R die Dummy-Kodierung, in der eine Ausprägung den Wert 0 erhält und eine andere den Wert 1. Eine alternative Kodierung existiert in der Effektkodierung, die stattdessen die Werte -1 und 1 vergibt. Um die Konsequenzen dieser beiden Kodierungen direkt zu vergleichen, erstelle zunächst für jede Kodierung eine neue Variable im Datensatz unter Verwendung des Codes unten. 
 
 ```{r, echo = TRUE}
 # Kodierungen der Farbe
@@ -225,7 +225,7 @@ summary(wein_dummy)
 summary(wein_effekt)
 ```
 
-6. Die Kodierung hat ausgenommen die Skalierung des Regressionsgewichts und des zugehörigen Standardfehlers für Farbe keinen Einfluss. t-Wert und Signifikanz sind identisch. Einzig der Intercept ändert sich wesentlich, da er unter der Effektkodierung tatsächlich weiter von Null entfernt ist.
+6. Die Kodierung hat ausgenommen die Skalierung des Regressionsgewichts und des zugehörigen Standardfehlers keinen Einfluss. <i>t</i>-Wert und Signifikanz sind identisch. Einzig der Intercept ändert sich wesentlich, da er unter der Effektkodierung tatsächlich weiter von Null entfernt ist.
 
 ### C - Interaktionen
 
@@ -245,7 +245,7 @@ wein_lm <- lm(formula = Qualität ~ Farbe * Alkohol,
 
 2. Printe das Objekt und betrachte die Gewichte. Wie interpretierst du die einzelnen Werte?
 
-3. Folgendermassen lassen sich die Gewichte interpretieren: Unter Berücksichtigung von Alkohol und der Interaktion, werden weisse Weine um `.7` besser bewertet. Unter Berücksichtigung der Farbe (d.h. für Farbe == 'rot') und der Interaktion, führt ein Anstieg von einem Volumenprozent zu einer Verbesserung der wahrgenommenen Qualität von `.36`. Unter Berücksichtigung von Farbe und Alkohol, führt die Interaktion, also das Produkt der beiden Prädiktoren zu einer Veränderung von `-.05`. Dies ist so zu interpretieren, dass der Effekt von Alkohol unter Weissweinen um genau diese Grösse kleiner ist. Dies bedeutet im Umkehrschluss dass der Effekt von Farbe unter hoch-alkoholischen Weinen kleiner ausfällt. Verwendet den Code unten um diese Ergebnisse zu visualisieren. Gelb bedeutet Weisswein, lila Rotwein.
+3. Die Gewichte lassen sich folgendermassen interpretieren: Unter Berücksichtigung von Alkohol und der Interaktion, werden weisse Weine um `.7` besser bewertet. Unter Berücksichtigung der Farbe (d.h. für Farbe == 'rot') und der Interaktion, führt ein Anstieg von einem Volumenprozent zu einer Verbesserung der wahrgenommenen Qualität von `.36`. Unter Berücksichtigung von Farbe und Alkohol, führt die Interaktion, also das Produkt der beiden Prädiktoren zu einer Veränderung von `-.05`. Dies ist so zu interpretieren, dass der Effekt von Alkohol unter Weissweinen um genau diese Grösse kleiner ist. Dies bedeutet im Umkehrschluss dass der Effekt von Farbe unter hoch-alkoholischen Weinen kleiner ausfällt. Verwendet den Code unten um diese Ergebnisse zu visualisieren. Gelb bedeutet Weisswein, lila Rotwein.
 
 ```{r, echo =T}
 # Visualisierung
@@ -258,9 +258,9 @@ ggplot(data = wein,
 
 ```
 
-4. Lasse dir nun die `summary()` anzeigen und inspiziere die t-Werte und Signifikanzen. Welche Prädiktoren sind signifikant?
+4. Lasse dir nun die `summary()` anzeigen und inspiziere die <i>t</i>-Werte und Signifikanzen. Welche Prädiktoren sind signifikant?
 
-5. Alle drei Prädiktoren sind signifikant. t-Wert und Signifikanz sind am extremsten für `Alkohol`, jedoch ist das Gewicht für `Alkohol` nur halb so gross. Wie ist dies zu erklären?  
+5. Alle drei Prädiktoren sind signifikant. <i>t</i>-Wert und Signifikanz sind am extremsten für `Alkohol`, jedoch ist das Gewicht für `Alkohol` nur halb so gross. Wie ist dies zu erklären?  
 
 6. Genau die Gewichte hängen auch von der Skalierung der Prädiktoren ab. Rechne nun die Regression noch einmal, aber diesmal mit skalierten Prädiktoren. Siehe Code unten.
 
@@ -299,10 +299,9 @@ ggplot(data = wein %>% mutate_if(is.numeric, skaliere),
 
 ```
 
-10. Schaue dir nun die `summary()` an. Was hat sich verändert bzgl. t-Werten, Signifikanzen, und Standardfehlern, und R-squared? 
+10. Schaue dir nun die `summary()` an. Was hat sich verändert bzgl. <i>t</i>-Werten, Signifikanzen, und Standardfehlern, und R-squared? 
 
-11. Ein grosser und in diesem Fall der Einzige Einfluss besteht auf die Variable `Farbe`, welche als einzige nicht mit standardisiert wurde. Vor der Standardisierung von `Alkohol` war Farbe beinahe perfekt mit der Interaktion korreliert, was zu einem extrem aufgeblasenen Standardfehler geführt hat. Die Standardisierung hat diese Korrelation jedoch stark reduziert, so dass der Standardfehler auf das Niveau der anderen Prädiktoren gefallen ist. In der Konklusion lohnt es sich beinahe immer die die Prädiktoren (oder auch das Kriterium) zu standardisieren, wenn ein Vergleich der Gewichte und Signifikanzen von Interesse ist. 
-
+11. Ein wesentlicher Einfluss besteht auf die Variable `Farbe`, welche als einzige nicht mit standardisiert wurde. Vor der Standardisierung von `Alkohol` war Farbe beinahe perfekt mit der Interaktion korreliert, was zu einem extrem aufgeblasenen Standardfehler geführt hat. Die Standardisierung hat diese Korrelation jedoch stark reduziert, so dass der Standardfehler auf das Niveau der anderen Prädiktoren gefallen ist. In der Konklusion lohnt es sich beinahe immer die Prädiktoren (oder auch das Kriterium) zu standardisieren, wenn ein Vergleich der Gewichte und Signifikanzen von Interesse ist. 
 
 ## Beispiele
 

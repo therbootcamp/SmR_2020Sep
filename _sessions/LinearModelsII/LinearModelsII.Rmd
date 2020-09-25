@@ -345,12 +345,14 @@ t.test(tour$Nächte_log[tour$Region == 'Europa'],
 # Regression mit dummy
 lm_dummy <- lm(
   Nächte_log ~ Region, 
-  tour %>% filter(Region %in% c('Europa', 'Asien')))
+  tour %>% 
+    filter(Region %in% c('Europa', 'Asien')))
 
 # Regression mit effect
 lm_effect <- lm(
   Nächte_log ~ Region, 
-  tour %>% filter(Region %in% c('Europa', 'Asien')),
+  tour %>% 
+    filter(Region %in% c('Europa', 'Asien')),
   contrasts = list(Region = contr.sum))
 ```
 
@@ -742,7 +744,7 @@ round(summary(mod)$coef,6)
 
 class: middle, center
 
-<h1><a href="https://therbootcamp.github.io/SmR_2020Mai/_sessions/LinearModelsII/LinearModelsII_practical.html">Practical</a></h1>
+<h1><a href="https://therbootcamp.github.io/SmR_2020Seps/_sessions/LinearModelsII/LinearModelsII_practical.html">Practical</a></h1>
 
 
 

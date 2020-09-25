@@ -62,6 +62,7 @@ options(digits = 4)
 knitr::opts_chunk$set(fig.align = 'center')
 ```
 
+<!---
 
 .pull-left45[
 <br><br><br><br><br>
@@ -81,7 +82,8 @@ Klicke auf <high>"....running..."</high> auf unserer Website!
 ]
 
 
----
+--->
+
 
 .pull-left6[
 
@@ -131,7 +133,6 @@ Klicke auf <high>"....running..."</high> auf unserer Website!
 <img src="image/schedule.png" height="525" align="center">
 
 ]
-
 
 
 ---
@@ -197,9 +198,9 @@ Klicke auf <high>"....running..."</high> auf unserer Website!
 .pull-right5[
 <br>
 
-  <iframe src="https://therbootcamp.github.io/SmR_2020Mai/_sessions/LinearModelsI/LinearModelsI_practical.html" height="480px" width = "500px"></iframe>
+  <iframe src="https://therbootcamp.github.io/SmR_2020Sep/_sessions/LinearModelsI/LinearModelsI_practical.html" height="480px" width = "500px"></iframe>
 
-  Beispiel:<a href="https://therbootcamp.github.io/SmR_2020Mai/_sessions/LinearModelsI/LinearModelsI_practical.html"> Lineare Modelle I </a>
+  Beispiel:<a href="https://therbootcamp.github.io/SmR_2020Sep/_sessions/LinearModelsI/LinearModelsI_practical.html"> Lineare Modelle I </a>
 
 ]
 
@@ -270,4 +271,4 @@ Klicke auf <high>"....running..."</high> auf unserer Website!
 ---
 class: middle, center
 
-<h1><a href=https://therbootcamp.github.io/SmR_2020Mai/index.html>Agenda</a></h1>
+<h1><a href=https://therbootcamp.github.io/SmR_2020Sep/index.html>Agenda</a></h1>

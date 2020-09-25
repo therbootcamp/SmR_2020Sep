@@ -5,7 +5,7 @@ author: "Statistik mit R<br>
     The R Bootcamp
   </a>
   <br>
-  <a href='https://therbootcamp.github.io/SmR_2020Mai/'>
+  <a href='https://therbootcamp.github.io/SmR_2020Sep/'>
     <i class='fas fa-clock' style='font-size:.9em;'></i>
   </a>&#8239; 
   <a href='https://therbootcamp.github.io'>
@@ -17,7 +17,7 @@ author: "Statistik mit R<br>
   <a href='https://www.linkedin.com/company/basel-r-bootcamp/'>
     <i class='fab fa-linkedin' style='font-size: .9em;'></i>
   </a>"
-date: "Mai 2020"
+date: "September 2020"
 output:
   xaringan::moon_reader:
     css: ["default", "baselrbootcamp.css"]
@@ -189,7 +189,8 @@ immatrikulation = read_csv('1_Data/immatrikulationen.csv')
 ```
 
 ```{r, echo = TRUE, eval = FALSE}
-immatrikulation %>% filter(Jahr == 2019)
+immatrikulation %>% 
+  filter(Jahr == 2019)
 ```
 
 ```{r, echo = FALSE}
@@ -238,7 +239,8 @@ immatrikulation = read_csv('1_Data/immatrikulationen.csv')
 ```
 
 ```{r, echo = TRUE, eval = FALSE}
-immatrikulation %>% filter(Jahr == 2019) %>%
+immatrikulation %>% 
+  filter(Jahr == 2019) %>%
   summarize(
     Total = sum(Immatrikulationen),
     Mittel = median(Immatrikulationen),
@@ -455,8 +457,9 @@ immatrikulation %>%
 
 ]
 
-
 ---
+
+<!---
 
 .pull-left2[
 
@@ -475,7 +478,7 @@ immatrikulation %>%
 
 ]
 
----
+
 
 .pull-left2[
 
@@ -495,7 +498,7 @@ immatrikulation %>%
 ]
 
 
----
+--->
 
 .pull-left35[
 
@@ -907,7 +910,7 @@ $$Pr(Daten|H0) = Verteilung$$
     <li><span>Mittelwert &mu;</span></li>
     <li><span>Standardabweichung &sigma;</span></li>
   </ul>
-  <li class="m3">Folgt aus dem <high>zentralen Grenzwertsatz</high></span></li>
+  <li class="m3"><span>Folgt aus dem <high>zentralen Grenzwertsatz</high></span></li>
 </ul>
 
 <br>
@@ -991,11 +994,15 @@ $$ \large \bar{X} \xrightarrow{d} \mathcal{N}(\mu, \frac{\sigma}{\sqrt{n}}) $$
 
 ]
 
+---
+class: middle, center
+
+<h1><a href="https://raw.githubusercontent.com/therbootcamp/SmR_2020Sep/master/TheRBootcamp.zip">Projekt downloaden</a></h1>
 
 
 ---
 class: middle, center
 
-<h1><a href="https://therbootcamp.github.io/SmR_2020Mai/index.html">Schedule</a></h1>
+<h1><a href="https://therbootcamp.github.io/SmR_2020Sep/index.html">Agenda</a></h1>
 
 

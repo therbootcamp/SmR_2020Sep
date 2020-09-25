@@ -183,7 +183,7 @@ summary {
 <col width='10%'>
 <tr style="border:none">
 <td style="display:block;width:100%;text-align:left;vertical-align:bottom;padding:0;margin:0;border:none" nowrap>
-<font style='font-style:normal'>Statistik mit R</font><br> <a href='https://therbootcamp.github.io/SmR_2020Mai/'> <i class='fas fa-clock' style='font-size:.9em;' ></i> </a> <a href='https://therbootcamp.github.io'> <i class='fas fa-home' style='font-size:.9em;'></i> </a> <a href='mailto:therbootcamp@gmail.com'> <i class='fas fa-envelope' style='font-size: .9em;'></i> </a> <a href='https://www.linkedin.com/company/basel-r-bootcamp/'> <i class='fab fa-linkedin' style='font-size: .9em;'></i> </a> <a href='https://therbootcamp.github.io'> <font style='font-style:normal'>The R Bootcamp</font> </a>
+<font style='font-style:normal'>Statistik mit R</font><br> <a href='https://therbootcamp.github.io/SmR_2020Sep/'> <i class='fas fa-clock' style='font-size:.9em;' ></i> </a> <a href='https://therbootcamp.github.io'> <i class='fas fa-home' style='font-size:.9em;'></i> </a> <a href='mailto:therbootcamp@gmail.com'> <i class='fas fa-envelope' style='font-size: .9em;'></i> </a> <a href='https://www.linkedin.com/company/basel-r-bootcamp/'> <i class='fab fa-linkedin' style='font-size: .9em;'></i> </a> <a href='https://therbootcamp.github.io'> <font style='font-style:normal'>The R Bootcamp</font> </a>
 </td>
 <td style="width:100%;vertical-align:bottom;text-align:right;padding:0;margin:0;border:none">
 <img src='https://raw.githubusercontent.com/therbootcamp/therbootcamp.github.io/master/_sessions/_image/by-sa.png' style='height:15px;width:80px'/>
@@ -234,14 +234,11 @@ library(tidyverse)
 library(pwr)
 library(rstanarm)</code></pre>
 <pre><code>Loading required package: Rcpp</code></pre>
-<pre><code>rstanarm (Version 2.19.2, packaged: 2019-10-01 20:20:33 UTC)</code></pre>
-<pre><code>- Do not expect the default priors to remain the same in future rstanarm versions.</code></pre>
-<pre><code>Thus, R scripts should specify priors explicitly, even if they are just the defaults.</code></pre>
+<pre><code>This is rstanarm version 2.21.1</code></pre>
+<pre><code>- See https://mc-stan.org/rstanarm/articles/priors for changes to default priors!</code></pre>
+<pre><code>- Default priors may change, so it&#39;s safest to specify priors, even if equivalent to the defaults.</code></pre>
 <pre><code>- For execution on a local, multicore CPU with excess RAM we recommend calling</code></pre>
-<pre><code>options(mc.cores = parallel::detectCores())</code></pre>
-<pre><code>- bayesplot theme set to bayesplot::theme_default()</code></pre>
-<pre><code>   * Does _not_ affect other ggplot2 plots</code></pre>
-<pre><code>   * See ?bayesplot_theme_set for details on theme setting</code></pre>
+<pre><code>  options(mc.cores = parallel::detectCores())</code></pre>
 <pre class="r"><code>library(BayesFactor)</code></pre>
 <pre><code>Loading required package: coda</code></pre>
 <pre><code>Loading required package: Matrix</code></pre>
@@ -281,7 +278,7 @@ psi2 &lt;- psi2 %&gt;% mutate_if(is.character, factor)</code></pre>
 <p></font></p>
 <script>
 // Set the date we're counting down to
-var countDownDate = new Date("May 9, 2020 17:15:00").getTime();
+var countDownDate = new Date("Sep 26, 2020 17:15:00").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -310,8 +307,8 @@ var x = setInterval(function() {
 }, 1000);
 </script>
 <ol start="2" style="list-style-type: decimal">
-<li><p>Das Ziel beider Wettbewerbe ist es den kleinstmöglichen <i>p</i>-Wert durch das fortwährende Massieren Bem’s experimenteller Daten zu extrahieren. Finde dafür bis zu drei Analysen, die zeigen, dass a) Menschen <em>psi</em>-Fähigkeiten besitzen, d.h., dass die <code>Trefferrate</code> höher als Chance ist und b) dass es andere Variablen gibt die <em>psi</em>-Fähigkeiten prädizieren, was ebenso ein Beleg für die Existenz solcher Fähigkeiten wäre. Es gibt keine Regeln, ausser dass <code>Trefferrate</code> als Kriterium zu wählen ist. Du kannst jeden möglichen Test verwenden. Dir ist es auch erlaubt nur Komponenten der Daten mit <code>data %&gt;% filter(condition)</code> auszuwählen.</p></li>
-<li><p>Für jede der beiden Wettbewerbe - jeweils ein Wettbewerb pro Experiment - darfst du drei Ergebnisse einreichen. Ihr könnt alleine arbeiten oder euch zusammenschliessen. Mehr Informationen über den Datensatz findet ihr unter dem <em>Datasets</em> tab. Die Person oder Gruppe mit dem niedrigsten <i>p</i>-Wert gewinnt 🍫🍫🍫.</p></li>
+<li><p>Das Ziel beider Wettbewerbe ist es den kleinstmöglichen <i>p</i>-Wert durch das fortwährende Massieren Bem’s experimenteller Daten zu extrahieren. Finde dafür bis zu drei Analysen, die zeigen, dass a) Menschen <em>psi</em>-Fähigkeiten besitzen, d.h., dass die <code>Trefferrate</code> signifikant höher als Chance ist und b) dass es andere Variablen gibt die <em>psi</em>-Fähigkeiten signifikant vorhersagen, was ebenso ein Beleg für die Existenz solcher Fähigkeiten wäre. Es gibt keine Regeln, ausser dass <code>Trefferrate</code> als Kriterium zu wählen ist. Du kannst jeden möglichen Test verwenden. Dir ist es auch erlaubt nur Komponenten der Daten mit <code>data %&gt;% filter(condition)</code> auszuwählen.</p></li>
+<li><p>Für jede der beiden Wettbewerbe - jeweils ein Wettbewerb pro Experiment - darfst du drei Ergebnisse einreichen. Mehr Informationen über den Datensatz findet ihr unter dem <em>Datasets</em> tab. Die Person mit dem niedrigsten <i>p</i>-Wert gewinnt 🍫🍫🍫.</p></li>
 <li><p>Reiche als Ergebnisse ein Pseudonym, den p-Wert und den Code-Schnipsel des Tests (inkl. Datenvorverarbeitung, falls relevant) ein über die folgenden Fragebögen:</p></li>
 </ol>
 <table align="center">
@@ -320,14 +317,14 @@ var x = setInterval(function() {
 Wettbewerb 1
 </td>
 <td>
-<a href="https://docs.google.com/forms/d/e/1FAIpQLScw5MmBX9wnmv3YO7SzdqdWMWSSwdCjWu0EUM2kurLRJLpEOQ/viewform?usp=sf_link"><font style="font-size:18px;font-weight:900">Einreichen</font></a>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLScVefMfFoLj9GzL8hdXbCp91WcSiI6cVrg_K1b2tMhdPvIERA/viewform?usp=sf_link"><font style="font-size:18px;font-weight:900">Einreichen</font></a>
 </td>
 </tr>
 <td>
 Wettbewerb 2
 </td>
 <td>
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSeJDsFtOSCFx7KmjzG4qq2bBMArPMWdaFKmUOqFfthspDhshQ/viewform?usp=sf_link"><font style="font-size:18px;font-weight:900">Einreichen</font></a>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSf9zbn6kxkIvn3k4bkqjEzz4OXCxE3HGEIBB_aL8rYT5mY7pQ/viewform?usp=sf_link"><font style="font-size:18px;font-weight:900">Einreichen</font></a>
 </td>
 </tr>
 </table>
@@ -335,7 +332,7 @@ Wettbewerb 2
 <div id="c---poweranalyse" class="section level3">
 <h3>C - Poweranalyse</h3>
 <ol style="list-style-type: decimal">
-<li>Bem’s erste Analyse in seinem Paper ist, ob <code>Trefferrate</code> grösser ist als <code>50%</code>. Für diese Bedingung (<code>Bedingung == 'erotic'</code>) hat Bem eine durchschnittliche Trefferrate von <code>53.13%</code> beobachtet. Bestimme für Experiment 1, welcher Cohen’s <em>d</em> Wert der implizierten Abweichung von <code>3.13%</code>-Punkte von der Trefferrate unter H0, nämlich <code>50%</code>, entspricht. Benutze das Template.</li>
+<li>Bem’s erste Analyse in seinem Paper ist, ob <code>Trefferrate</code> grösser ist als <code>50%</code>. Für diese Bedingung (<code>Bedingung == 'erotic'</code>) hat Bem eine durchschnittliche Trefferrate von <code>53.13%</code> beobachtet. Bestimme für Experiment 1, welcher Cohen’s <em>d</em> Wert der Abweichung von <code>3.13%</code>-Punkte von der Trefferrate unter H0 (<code>50%</code>), entspricht. Benutze das Template.</li>
 </ol>
 <pre class="r"><code># Extrahiere die Trefferraten für erotic
 Trefferrate_erotic &lt;- psi1 %&gt;% filter(Bedingung == &quot;erotic&quot;) %&gt;% pull(Trefferrate)
@@ -379,13 +376,13 @@ stichprobe</code></pre>
 
 NOTE: n is number in *each* group</code></pre>
 <ol start="3" style="list-style-type: decimal">
-<li>Laut Poweranalyse wäre eine Stichprobe von 347 Individuen nötig. Versuche dies einmal mit der <code>plot.power.htest()</code>-Funktion zu visualisieren. Wende sie einfach auf das <code>stichprobe</code> Objekt an.</li>
+<li>Laut Poweranalyse wäre eine Stichprobe von 347 Individuen nötig. Versuche dies einmal mit der <code>plot.power.htest()</code>-Funktion zu visualisieren. Wende sie einfach auf das <code>stichprobe</code>-Objekt an.</li>
 </ol>
 <pre class="r"><code># Stichprobe-Visualisierung
 plot.power.htest(stichprobe) </code></pre>
 <p><img src="NewStats_practical_files/figure-html/unnamed-chunk-9-1.png" width="576" style="display: block; margin: auto;" /></p>
 <ol start="4" style="list-style-type: decimal">
-<li>Mittels des Plots könnt ihr nun auch evaluieren, wie gross die Power von Bem’s ursprünglicher Studie war. In Bem’s <code>'erotic'</code> condition waren <span class="math inline">\(r length(Trefferrate_erotic)\)</span> Beobachtungen. Finde den entsprechenden Punkt auf der x-Achse und gehe dann nach oben um die dazugehörige Power zu finden. Alternativ kannst du nochmals die <code>pwr.t.test()</code> Funktion verwenden und anstatt <code>power</code> die Stichprobengrösse <code>n</code> definieren. Siehe Template.</li>
+<li>Mittels des Plots kannst du nun auch evaluieren, wie gross die Power von Bem’s ursprünglicher Studie war. In Bem’s <code>'erotic'</code> condition waren <span class="math inline">\(r length(Trefferrate_erotic)\)</span> Beobachtungen. Finde den entsprechenden Punkt auf der x-Achse und gehe dann nach oben um die dazugehörige Power zu finden. Alternativ kannst du nochmals die <code>pwr.t.test()</code> Funktion verwenden und anstatt <code>power</code> die Stichprobengrösse <code>n</code> definieren. Siehe Template.</li>
 </ol>
 <pre class="r"><code># Bems post-hoc power
 power &lt;- pwr.t.test(n = XX, 
@@ -483,14 +480,14 @@ psi_ttest$conf.int</code></pre>
 attr(,&quot;conf.level&quot;)
 [1] 0.95</code></pre>
 <ol start="3" style="list-style-type: decimal">
-<li>Das Konfidenezinterval für den Unterschied liegt zwischen zwischen <code>-6.84</code> und <code>.23</code>. Das Konfidenzintervalle enthält also die NUll. Das heisst, dass obgleich der Mittelwert für die Erotic-Bedingung signifikant von <code>50%</code> verschieden ist die beiden Bedingungen sich nicht signifikant unterscheiden. Beginne nun das Konfidenzintervall für den Unterschied der Gruppen nachzubauen. Extrahiere dafür zunächst den Unterschied, den entsprechenden Standardfehler, und die Freiheitsgrade.</li>
+<li>Das Konfidenezinterval für den Unterschied liegt zwischen zwischen <code>-6.84</code> und <code>.23</code>. Das Konfidenzintervalle enthält also die Null. Das heisst, dass obgleich der Mittelwert für die Erotic-Bedingung signifikant von <code>50%</code> verschieden ist die beiden Bedingungen sich nicht signifikant unterscheiden. Beginne nun das Konfidenzintervall für den Unterschied der Gruppen nachzubauen. Extrahiere dafür zunächst den Unterschied, den entsprechenden Standardfehler, und die Freiheitsgrade.</li>
 </ol>
 <pre class="r"><code># Gewicht b und Standardfehler se
 delta &lt;- psi_ttest$estimate
 se &lt;- psi_ttest$stderr
 df &lt;- psi_ttest$parameter</code></pre>
 <ol start="4" style="list-style-type: decimal">
-<li>Jetzt benötigst du nur noch die entsprechenden t-Werte um das Konfidenzintervall aufzuspannen. Da das Konfidenzintervall in beide Richtungen zu gleichen Teilen aufgespannt werden soll suchen wir nicht den t-Wert für <span class="math inline">\(1-\alpha\)</span> sondern für <span class="math inline">\(1-\frac{\alpha}{2}\)</span> und <span class="math inline">\(\frac{\alpha}{2}\)</span>, d.h., wir suchen die kritischen t-Werte für einen zweiseitigen Test mit <span class="math inline">\(\alpha = .05\)</span>. Verwende das Template</li>
+<li>Jetzt benötigst du nur noch die entsprechenden <i>t</i>-Werte um das Konfidenzintervall aufzuspannen. Da das Konfidenzintervall in beide Richtungen zu gleichen Teilen aufgespannt werden soll suchen wir nicht den <i>t</i>-Wert für <span class="math inline">\(1-\alpha\)</span> sondern für <span class="math inline">\(1-\frac{\alpha}{2}\)</span> und <span class="math inline">\(\frac{\alpha}{2}\)</span>, d.h., wir suchen die kritischen t-Werte für einen zweiseitigen Test mit <span class="math inline">\(\alpha = .05\)</span>. Verwende das Template.</li>
 </ol>
 <pre class="r"><code># Kritische t-Werte
 t_25 &lt;- qt(p = XX, df = XX)
@@ -499,7 +496,7 @@ t_97.5 &lt;- qt(p = XX, df = XX)</code></pre>
 t_.25 &lt;- qt(p = .025, df = df)
 t_97.5 &lt;- qt(p = .975, df = df)</code></pre>
 <ol start="5" style="list-style-type: decimal">
-<li>Schaue dir zunächst die beiden t-Werte an. Überrascht, dass es die selben Werte sind nur einmal positiv und einmal negativ? Das ergibt sich daraus, dass die t-Verteilung symmetrisch um Null liegt. Um nun damit das Konfidenzintervall zu berechnen verwende das Template unten. Es geht darum <code>t*se</code> nach oben und <code>t*se</code> nach unten vom Unterschied <code>delta</code> zu gehen. Denkt an die unterschiedlichen Vorzeichen der beiden t-Werte.</li>
+<li>Schaue dir zunächst die beiden <i>t</i>-Werte an. Überrascht, dass es die selben Werte sind nur einmal positiv und einmal negativ? Das ergibt sich daraus, dass die t-Verteilung symmetrisch um Null liegt. Um nun damit das Konfidenzintervall zu berechnen verwende das Template unten. Es geht darum <code>t*se</code> nach oben und <code>t*se</code> nach unten vom Unterschied <code>delta</code> zu gehen. Denk an die unterschiedlichen Vorzeichen der beiden t-Werte.</li>
 </ol>
 <pre class="r"><code># confidence limits
 delta_lower &lt;- XX + XX * XX
@@ -508,7 +505,7 @@ delta_upper &lt;- XX + XX * XX</code></pre>
 delta_lower &lt;- delta + t_.25 * se
 delta_upper &lt;- delta + t_97.5 * se</code></pre>
 <ol start="8" style="list-style-type: decimal">
-<li><p>Jetzt könnt ihr eurer Konfidenzintervall mit dem aus dem t-Wert vergleichen. Ist es identisch?</p></li>
+<li><p>Jetzt kannst du das Konfidenzintervall mit dem aus dem <i>t</i>-Wert vergleichen. Ist es identisch?</p></li>
 <li><p>Probiere andere Konfidenzintervalle aus. Wie verändern sich dei Grenzen, wenn <span class="math inline">\(\alpha = .01\)</span> oder <span class="math inline">\(\alpha = .1\)</span>, d.h., wenn die Konfidenzintervalle 99% bzw. 90% umspannen?</p></li>
 </ol>
 </div>
@@ -523,8 +520,8 @@ Trefferrate_bm &lt;- stan_glm(formula = Trefferrate ~ Geschlecht + Stimulus_seek
 <pre><code>
 SAMPLING FOR MODEL &#39;continuous&#39; NOW (CHAIN 1).
 Chain 1: 
-Chain 1: Gradient evaluation took 0.000513 seconds
-Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 5.13 seconds.
+Chain 1: Gradient evaluation took 9.4e-05 seconds
+Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.94 seconds.
 Chain 1: Adjust your expectations accordingly!
 Chain 1: 
 Chain 1: 
@@ -541,15 +538,15 @@ Chain 1: Iteration: 1600 / 2000 [ 80%]  (Sampling)
 Chain 1: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Chain 1: Iteration: 2000 / 2000 [100%]  (Sampling)
 Chain 1: 
-Chain 1:  Elapsed Time: 0.049743 seconds (Warm-up)
-Chain 1:                0.050095 seconds (Sampling)
-Chain 1:                0.099838 seconds (Total)
+Chain 1:  Elapsed Time: 0.037369 seconds (Warm-up)
+Chain 1:                0.035442 seconds (Sampling)
+Chain 1:                0.072811 seconds (Total)
 Chain 1: 
 
 SAMPLING FOR MODEL &#39;continuous&#39; NOW (CHAIN 2).
 Chain 2: 
-Chain 2: Gradient evaluation took 1.4e-05 seconds
-Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.14 seconds.
+Chain 2: Gradient evaluation took 1e-05 seconds
+Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.1 seconds.
 Chain 2: Adjust your expectations accordingly!
 Chain 2: 
 Chain 2: 
@@ -566,15 +563,15 @@ Chain 2: Iteration: 1600 / 2000 [ 80%]  (Sampling)
 Chain 2: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Chain 2: Iteration: 2000 / 2000 [100%]  (Sampling)
 Chain 2: 
-Chain 2:  Elapsed Time: 0.049196 seconds (Warm-up)
-Chain 2:                0.042614 seconds (Sampling)
-Chain 2:                0.09181 seconds (Total)
+Chain 2:  Elapsed Time: 0.034494 seconds (Warm-up)
+Chain 2:                0.034698 seconds (Sampling)
+Chain 2:                0.069192 seconds (Total)
 Chain 2: 
 
 SAMPLING FOR MODEL &#39;continuous&#39; NOW (CHAIN 3).
 Chain 3: 
-Chain 3: Gradient evaluation took 1.2e-05 seconds
-Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 0.12 seconds.
+Chain 3: Gradient evaluation took 1e-05 seconds
+Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 0.1 seconds.
 Chain 3: Adjust your expectations accordingly!
 Chain 3: 
 Chain 3: 
@@ -591,15 +588,15 @@ Chain 3: Iteration: 1600 / 2000 [ 80%]  (Sampling)
 Chain 3: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Chain 3: Iteration: 2000 / 2000 [100%]  (Sampling)
 Chain 3: 
-Chain 3:  Elapsed Time: 0.043142 seconds (Warm-up)
-Chain 3:                0.044521 seconds (Sampling)
-Chain 3:                0.087663 seconds (Total)
+Chain 3:  Elapsed Time: 0.030517 seconds (Warm-up)
+Chain 3:                0.03417 seconds (Sampling)
+Chain 3:                0.064687 seconds (Total)
 Chain 3: 
 
 SAMPLING FOR MODEL &#39;continuous&#39; NOW (CHAIN 4).
 Chain 4: 
-Chain 4: Gradient evaluation took 9e-06 seconds
-Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.09 seconds.
+Chain 4: Gradient evaluation took 1.1e-05 seconds
+Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.11 seconds.
 Chain 4: Adjust your expectations accordingly!
 Chain 4: 
 Chain 4: 
@@ -616,9 +613,9 @@ Chain 4: Iteration: 1600 / 2000 [ 80%]  (Sampling)
 Chain 4: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Chain 4: Iteration: 2000 / 2000 [100%]  (Sampling)
 Chain 4: 
-Chain 4:  Elapsed Time: 0.04854 seconds (Warm-up)
-Chain 4:                0.042212 seconds (Sampling)
-Chain 4:                0.090752 seconds (Total)
+Chain 4:  Elapsed Time: 0.035994 seconds (Warm-up)
+Chain 4:                0.035333 seconds (Sampling)
+Chain 4:                0.071327 seconds (Total)
 Chain 4: </code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li><p>Printe das Objekt und betrachte den Output. Er sieht sehr anders aus als der Output der normalen Regression. Trotzdem solltest du einen Part wiedererkennen. Im Teil nach dem ersten mal <code>-----</code> stehen die Gewichte und deren Standardabweichung, welche du analog zum Standardfehler interpretieren kannst. Darüber stehen grundlegenden Informationen zum Modell, die du üblicherweise ignoriere kannst. Darunter stehen zu <code>Auxiliary parameter(s)</code> stehen Parameter, die das Modell zusätzlich geschätzt hat. Der eine Parameter <code>sigma</code> ist die Standardabweichung um die Regressionsgerade, welche im Bayesianischen Modell auch eine Standardabweichung besitzt.</p></li>
@@ -627,10 +624,10 @@ Chain 4: </code></pre>
 <pre class="r"><code># Bayesian posterior credible interval
 posterior_interval(Trefferrate_bm, prob = .95)</code></pre>
 <pre><code>                   2.5% 97.5%
-(Intercept)      33.401 52.89
-GeschlechtMale   -2.295  7.50
-Stimulus_seeking -0.196  6.66
-sigma            10.825 14.37</code></pre>
+(Intercept)      33.355 52.82
+GeschlechtMale   -2.143  7.36
+Stimulus_seeking -0.208  6.61
+sigma            10.815 14.37</code></pre>
 <ol start="4" style="list-style-type: decimal">
 <li>Wenn Null nicht enthalten ist, dann ist die Wahrscheinlichkeit, dass ein Effekt Null ist tatsächlich kleiner als 5%.</li>
 </ol>
@@ -773,15 +770,15 @@ posterior(bm2, iterations = 1000)</code></pre>
 <tbody>
 <tr class="odd">
 <td align="left"><code>tidyverse</code></td>
-<td align="left"><code>install.packages(&quot;tidyverse&quot;)</code></td>
+<td align="left"><code>install.packages("tidyverse")</code></td>
 </tr>
 <tr class="even">
 <td align="left"><code>pwr</code></td>
-<td align="left"><code>install.packages(&quot;pwr&quot;)</code></td>
+<td align="left"><code>install.packages("pwr")</code></td>
 </tr>
 <tr class="odd">
 <td align="left"><code>rstanarm</code></td>
-<td align="left"><code>install.packages(&quot;rstanarm&quot;)</code></td>
+<td align="left"><code>install.packages("rstanarm")</code></td>
 </tr>
 </tbody>
 </table>

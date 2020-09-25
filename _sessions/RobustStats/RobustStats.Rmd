@@ -468,7 +468,7 @@ anova(model_1, model_2)
 
 <ul>
   <li class="m1"><span>Gruppenvergleiche können mit dem <high>Rangsummentest</high> von Wilcoxon bzw. Mann-Whitney durchgeführt werden</span></li>
-  <li class="m2"><span>Der Rangsummentest tested, ob die <high>Summen gmeinsam gebildeter Ränge</high> in den Gruppen identisch sind.</span></li>
+  <li class="m2"><span>Der Rangsummentest testet, ob die <high>Summen gmeinsam gebildeter Ränge</high> in den Gruppen identisch sind.</span></li>
 </ul>
 
 <p align = "center">
@@ -496,7 +496,7 @@ anova(model_1, model_2)
 
 <ul>
   <li class="m1"><span>Gruppenvergleiche können mit dem <high>Rangsummentest</high> von Wilcoxon bzw. Mann-Whitney durchgeführt werden</span></li>
-  <li class="m2"><span>Der Rangsummentest tested, ob die <high>Summen gmeinsam gebildeter Ränge</high> in den Gruppen identisch sind.</span></li>
+  <li class="m2"><span>Der Rangsummentest testet, ob die <high>Summen gmeinsam gebildeter Ränge</high> in den Gruppen identisch sind.</span></li>
 </ul>
 
 <p align = "center">
@@ -546,7 +546,7 @@ wilcox.test(group_1, group_2)
 
 <ul>
   <li class="m1"><span>Einfacher Test für abhängige Daten basierend auf der <high>Kombinatorik von Häufigkeiten</high>.</span></li>
-  <li class="m2"><span>Der Rangsummentest tested, ob die <high>Vorzeichen von Differenzen (+,-)</high> gleich wahrscheinlich sind.</span></li>
+  <li class="m2"><span>Der Vorzeichentest testet, ob die <high>Vorzeichen von Differenzen (+,-)</high> gleich wahrscheinlich sind.</span></li>
 </ul>
 
 
@@ -575,7 +575,7 @@ wilcox.test(group_1, group_2)
 
 <ul>
   <li class="m1"><span>Einfacher Test für abhängige Daten basierend auf der <high>Kombinatorik von Häufigkeiten</high>.</span></li>
-  <li class="m2"><span>Der Rangsummentest tested, ob die <high>Vorzeichen von Differenzen (+,-)</high> gleich wahrscheinlich sind.</span></li>
+  <li class="m2"><span>Der Vorzeichentest testet, ob die <high>Vorzeichen von Differenzen (+,-)</high> gleich wahrscheinlich sind.</span></li>
 </ul>
 
 
@@ -1110,5 +1110,5 @@ boot.ci(B, index = 3)
 
 class: middle, center
 
-<h1><a href="https://therbootcamp.github.io/SwR_2019Apr/_sessions/RobustStats/RobustStats_practical.html">Practical</a></h1>
+<h1><a href="https://therbootcamp.github.io/SwR_2019Sep/_sessions/RobustStats/RobustStats_practical.html">Practical</a></h1>
 

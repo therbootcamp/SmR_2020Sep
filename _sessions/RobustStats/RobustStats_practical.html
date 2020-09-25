@@ -213,7 +213,7 @@ summary {
 <div id="a---setup" class="section level3">
 <h3>A - Setup</h3>
 <ol style="list-style-type: decimal">
-<li><p>Öffne dein <code>TheRBootcamp</code> R project. Es sollte die Ordner <code>1_Data</code> und <code>2_Code</code> enthalten. Stelle sicher, dass du alle Datensätze, welche im <code>Datensätze</code> Tab aufgelistet sind, in deinem <code>1_Data</code> Ordner hast.</p></li>
+<li><p>Öffne dein <code>TheRBootcamp</code> R project.</p></li>
 <li><p>Öffne ein neues R Skript. Schreibe deinen Namen, das Datum und “Robuste Statistik Practical” als Kommentare an den Anfang des Skripts.</p></li>
 </ol>
 <pre class="r"><code>## NAME
@@ -254,14 +254,14 @@ avocado_cali &lt;- avocado_cali %&gt;% mutate_if(is.character, factor)</code></p
 cali_lm &lt;- lm(formula = YY ~ XX, 
                data = ZZ)</code></pre>
 <ol start="2" style="list-style-type: decimal">
-<li><p>Betrachte die <code>summary()</code> des Modells. Ist <code>Preis</code> ein guter Prädiktor für <code>Verkaufsvolumen</code>? Achte auch auf <code>R-squared</code></p></li>
-<li><p>In der Tat, <code>Preis</code> ist ein signifikanter Prädiktor mit einem sehr extremen t-Wert. Zudem weist <code>R-squared</code> einen hohen Wert von <code>62.8%</code> erklärte Varianz auf. Bedeutet dies nun, dass das Modell, welches einen linearen Zusammenhang annimmt, gut den Zusammenhang von <code>Preis</code> und <code>Verkaufsvolumen</code> beschreibt? Verwende den Code unten um die Daten zu plotten.</p></li>
+<li><p>Betrachte die <code>summary()</code> des Modells. Ist <code>Preis</code> ein guter Prädiktor für <code>Verkaufsvolumen</code>? Achte auch auf <code>R-squared</code>.</p></li>
+<li><p><code>Preis</code> ist ein signifikanter Prädiktor mit einem sehr extremen <i>t</i>-Wert. Zudem weist <code>R-squared</code> einen hohen Wert von <code>62.8%</code> erklärte Varianz auf. Bedeutet dies nun, dass das Modell, welches einen linearen Zusammenhang annimmt, gut den Zusammenhang von <code>Preis</code> und <code>Verkaufsvolumen</code> beschreibt? Verwende den Code unten um die Daten zu plotten.</p></li>
 </ol>
 <pre class="r"><code># Plotte Modell und Daten
 ggplot(avocado_cali, aes(Preis, Verkaufsvolumen)) +
   geom_point() + geom_smooth(method = &#39;lm&#39;)</code></pre>
 <ol start="4" style="list-style-type: decimal">
-<li>Irgendwie nicht so gut, oder? Überprüfe dies indem du mit dem Code unten die Residuen gegen die gefitteten Werte plottest.</li>
+<li>Irgendwie nicht so gut, oder? Überprüfe dies indem du mit dem Code unten die Residuen gegen die gefitteten (vorhergesagten) Werte plottest.</li>
 </ol>
 <pre class="r"><code># Residualplot
 ggplot(mapping = aes(fitted(cali_lm), resid(cali_lm))) + geom_point()</code></pre>
@@ -272,7 +272,7 @@ ggplot(mapping = aes(fitted(cali_lm), resid(cali_lm))) + geom_point()</code></pr
 cali_lm &lt;- lm(formula = XX ~ XX + XX, data = XX)
 ggplot(mapping = aes(fitted(XX), resid(XX))) + geom_point()</code></pre>
 <ol start="6" style="list-style-type: decimal">
-<li>Das hat geholfen! Aber die Sache sieht immer noch nicht ganz rund aus. Ein weiteres Problem, existiert in der sehr schiefen Verteilung von <code>Verkaufsvolumen</code>. Es gibt nun mehrere Wege damit umzugehen. 1) Transformation von <code>Verkaufsvolumen</code> z.B. mit <code>log()</code>, 2) Verwendung der alternativen Variable <code>Verkaufsvolumen_index</code>, oder 3) die Modellierung mit einer passenden Verteilung. Probiere alle drei aus. Beginne mit 1), der Transformation. Überprüfe zunächst mit dem Template wie sich die Schiefe darstellt und wie sie sich durch <code>log()</code> verändert.</li>
+<li>Das hat geholfen! Aber die Sache sieht immer noch nicht ganz rund aus. Ein weiteres Problem existiert in der sehr schiefen Verteilung von <code>Verkaufsvolumen</code>. Es gibt nun mehrere Wege damit umzugehen. 1) Transformation von <code>Verkaufsvolumen</code> z.B. mit <code>log()</code>, 2) Verwendung der alternativen Variable <code>Verkaufsvolumen_index</code>, oder 3) die Modellierung mit einer passenden Verteilung. Probiere alle drei aus. Beginne mit 1), der Transformation. Überprüfe zunächst mit dem Template wie sich die Schiefe darstellt und wie sie sich durch <code>log()</code> verändert.</li>
 </ol>
 <pre class="r"><code># Histogramm Verkaufsvolumen
 ggplot(avocado_cali, aes(Verkaufsvolumen)) + geom_histogram()
@@ -389,7 +389,7 @@ cali_rfit &lt;- rfit(formula = YY ~ XX + XX,
 <div id="e---bootstrap" class="section level3">
 <h3>E - Bootstrap</h3>
 <ol style="list-style-type: decimal">
-<li>Der Bootstrap ist ein kaum zu überschätzendes Tool in der Statistik, dass praktisch jeden statistischen Test zu ersetzen vermag. Verwende ihn um Standardfehler für übliche Regression von <code>Verkaufsvolumen</code> auf <code>Preis</code> und <code>Typ</code> zu bestimmen. Dazu haben wir für dich schon die bootstrap Funktion geschrieben die wir im nächsten Schritt in die <code>boot</code>-Funktion stecken können. Versuche zunächst jedoch nachzuvollziehen was unsere <code>boot_lm</code> Funktion tut.</li>
+<li>Der Bootstrap ist ein kaum zu überschätzendes Tool in der Statistik, dass praktisch jeden statistischen Test ersetzen kann. Verwende ihn um Standardfehler für übliche Regression von <code>Verkaufsvolumen</code> auf <code>Preis</code> und <code>Typ</code> zu bestimmen. Dazu haben wir für dich schon die bootstrap Funktion geschrieben die wir im nächsten Schritt in die <code>boot</code>-Funktion stecken können. Versuche zunächst jedoch nachzuvollziehen was unsere <code>boot_lm</code> Funktion tut.</li>
 </ol>
 <pre class="r"><code># Bootstrap Funktion für lm
 boot_lm &lt;- function(data, indices, formula){
@@ -417,39 +417,17 @@ cali_boot&lt;- boot(data = avocado_cali,
 <pre class="r"><code># Zeige Bootstrap Ergebnisse
 cali_boot</code></pre>
 <ol start="4" style="list-style-type: decimal">
-<li>Das Ergebnis des Bootstrap kannst du nun einfach über eine z-Verteilung testen a la <code>z = b / se</code>, d.h., das Gewicht geteilt durch den Standardfehler folgt der z-Verteilung. Der Code unten sieht die relevanten Werte aus dem Objekt und berechnet die z-Werte für Intercept und die zwei Gewichte.</li>
+<li>Das Ergebnis des Bootstrap kannst du nun einfach über eine z-Verteilung testen a la <code>z = b / se</code>, d.h., das Gewicht geteilt durch den Standardfehler folgt der z-Verteilung. Der Code unten sieht die relevanten Werte aus dem Objekt und berechnet die <i>z</i>-Werte für Intercept und die zwei Gewichte.</li>
 </ol>
 <pre class="r"><code># Berechne z-Werte
 cali_boot$t0[1] / sd(cali_boot$t[,1])
 cali_boot$t0[2] / sd(cali_boot$t[,2])
 cali_boot$t0[3] / sd(cali_boot$t[,3])</code></pre>
 <ol start="5" style="list-style-type: decimal">
-<li>Zum Abschluss vergleiche die durch Bootstrap ermittelten z-Werte mit den t-Werten aus der normalen Regression. Wisse dass zumindest theoretisch t-Werte mit vielen Freiheitsgraden praktisch identisch mit z-Werte seien sollten. Da in den Standardfehler der normalen Regression jedoch Annahmen einfliessen, müssen die Werte nicht identisch sein.</li>
+<li>Zum Abschluss vergleiche die durch Bootstrap ermittelten <i>z</i>-Werte mit den <i>t</i>-Werten aus der normalen Regression. Wisse dass zumindest theoretisch t-Werte mit vielen Freiheitsgraden praktisch identisch mit <i>z</i>-Werte seien sollten. Da in den Standardfehler der normalen Regression jedoch Annahmen einfliessen, müssen die Werte nicht identisch sein.</li>
 </ol>
 <pre class="r"><code># Normale Regression
 summary(lm(Verkaufsvolumen ~ Preis + Typ, avocado_cali))</code></pre>
-</div>
-<div id="f---annahmen-teil-2" class="section level3">
-<h3>F - Annahmen Teil 2</h3>
-<ol style="list-style-type: decimal">
-<li>In dieser letzten Sektion, hast du die Möglichkeit nochmal gemischte Modelle zu wiederholen. Unten steht ein template um ein gemischtes Modell für den gesamten Avocado Datensatz zu rechnen in dem du berücksichtigst, dass die Daten aus verschiedenen Regionen stammen. Have fun!</li>
-</ol>
-<pre class="r"><code># model
-avocado_lmer &lt;- lmer(formula = Verkaufsvolumen ~ XX + (1 + XX | Region), 
-                     data = avocado)
-
-# residual plot
-plot(x = fitted(avocado_lmer), y = residuals(avocado_lmer))</code></pre>
-<ol start="2" style="list-style-type: decimal">
-<li>Natürlich kannst du auch wiederum den Residualplot überprüfen. Diesmal separat für jede Region.</li>
-</ol>
-<pre class="r"><code># Residualplot
-ggplot(tibble(fitted = fitted(avocado_lmer), 
-              resid = resid(avocado_lmer), 
-              Region = avocado$Region),
-       mapping = aes(fitted, resid)) + 
-  geom_point() + 
-  facet_wrap(~Region)</code></pre>
 </div>
 </div>
 <div id="beispiele" class="section level2">

@@ -4,7 +4,7 @@ author: "<table style='table-layout:fixed;width:100%;border:0;padding:0;margin:0
   <tr style='border:none'>
     <td style='display:block;width:100%;text-align:left;vertical-align:bottom;padding:0;margin:0;border:none' nowrap>
       <font style='font-style:normal'>Statistik mit R</font><br>
-      <a href='https://therbootcamp.github.io/SmR_2020Mai/'>
+      <a href='https://therbootcamp.github.io/SmR_2020Sep/'>
         <i class='fas fa-clock' style='font-size:.9em;' ></i>
       </a>
       <a href='https://therbootcamp.github.io'>
@@ -140,7 +140,7 @@ psi2 <- psi2 %>% mutate_if(is.character, factor)
 
 <script>
 // Set the date we're counting down to
-var countDownDate = new Date("May 9, 2020 17:15:00").getTime();
+var countDownDate = new Date("Sep 26, 2020 17:15:00").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -169,27 +169,26 @@ var x = setInterval(function() {
 }, 1000);
 </script>
 
-2. Das Ziel beider Wettbewerbe ist es den kleinstmöglichen <i>p</i>-Wert durch das fortwährende Massieren Bem's experimenteller Daten zu extrahieren. Finde dafür bis zu drei Analysen, die zeigen, dass a) Menschen *psi*-Fähigkeiten besitzen, d.h., dass die `Trefferrate` höher als Chance ist und b) dass es andere Variablen gibt die *psi*-Fähigkeiten prädizieren, was ebenso ein Beleg für die Existenz solcher Fähigkeiten wäre. Es gibt keine Regeln, ausser dass `Trefferrate` als Kriterium zu wählen ist. Du kannst jeden möglichen Test verwenden. Dir ist es auch erlaubt nur Komponenten der Daten mit `data %>% filter(condition)` auszuwählen.
+2. Das Ziel beider Wettbewerbe ist es den kleinstmöglichen <i>p</i>-Wert durch das fortwährende Massieren Bem's experimenteller Daten zu extrahieren. Finde dafür bis zu drei Analysen, die zeigen, dass a) Menschen *psi*-Fähigkeiten besitzen, d.h., dass die `Trefferrate` signifikant höher als Chance ist und b) dass es andere Variablen gibt die *psi*-Fähigkeiten signifikant vorhersagen, was ebenso ein Beleg für die Existenz solcher Fähigkeiten wäre. Es gibt keine Regeln, ausser dass `Trefferrate` als Kriterium zu wählen ist. Du kannst jeden möglichen Test verwenden. Dir ist es auch erlaubt nur Komponenten der Daten mit `data %>% filter(condition)` auszuwählen.
 
-3. Für jede der beiden Wettbewerbe - jeweils ein Wettbewerb pro Experiment - darfst du drei Ergebnisse einreichen. Ihr könnt alleine arbeiten oder euch zusammenschliessen. Mehr Informationen über den Datensatz findet ihr unter dem  *Datasets* tab. Die Person oder Gruppe mit dem niedrigsten <i>p</i>-Wert gewinnt &#x1F36B;&#x1F36B;&#x1F36B;.  
+3. Für jede der beiden Wettbewerbe - jeweils ein Wettbewerb pro Experiment - darfst du drei Ergebnisse einreichen. Mehr Informationen über den Datensatz findet ihr unter dem  *Datasets* tab. Die Person mit dem niedrigsten <i>p</i>-Wert gewinnt &#x1F36B;&#x1F36B;&#x1F36B;.  
 
 4. Reiche als Ergebnisse ein Pseudonym, den p-Wert und den Code-Schnipsel des Tests (inkl. Datenvorverarbeitung, falls relevant) ein über die folgenden Fragebögen:
-
 
 <table align="center">
   <tr>
     <td>Wettbewerb 1</td>
-    <td><a href="https://docs.google.com/forms/d/e/1FAIpQLScw5MmBX9wnmv3YO7SzdqdWMWSSwdCjWu0EUM2kurLRJLpEOQ/viewform?usp=sf_link"><font style="font-size:18px;font-weight:900">Einreichen</font></a></td>
+    <td><a href="https://docs.google.com/forms/d/e/1FAIpQLScVefMfFoLj9GzL8hdXbCp91WcSiI6cVrg_K1b2tMhdPvIERA/viewform?usp=sf_link"><font style="font-size:18px;font-weight:900">Einreichen</font></a></td>
   </tr>
     <td>Wettbewerb 2</td>
-    <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSeJDsFtOSCFx7KmjzG4qq2bBMArPMWdaFKmUOqFfthspDhshQ/viewform?usp=sf_link"><font style="font-size:18px;font-weight:900">Einreichen</font></a></td>
+    <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSf9zbn6kxkIvn3k4bkqjEzz4OXCxE3HGEIBB_aL8rYT5mY7pQ/viewform?usp=sf_link"><font style="font-size:18px;font-weight:900">Einreichen</font></a></td>
   </tr>
 </table>
 
 
 ### C - Poweranalyse
 
-1. Bem's erste Analyse in seinem Paper ist, ob `Trefferrate` grösser ist als `50%`. Für diese Bedingung (`Bedingung == 'erotic'`) hat Bem eine durchschnittliche Trefferrate von `53.13%` beobachtet. Bestimme für Experiment 1, welcher Cohen's *d* Wert der implizierten Abweichung von `3.13%`-Punkte von der Trefferrate unter H0, nämlich `50%`, entspricht. Benutze das Template. 
+1. Bem's erste Analyse in seinem Paper ist, ob `Trefferrate` grösser ist als `50%`. Für diese Bedingung (`Bedingung == 'erotic'`) hat Bem eine durchschnittliche Trefferrate von `53.13%` beobachtet. Bestimme für Experiment 1, welcher Cohen's *d* Wert der Abweichung von `3.13%`-Punkte von der Trefferrate unter H0 (`50%`), entspricht. Benutze das Template. 
 
 ```{r, echo = TRUE, eval = FALSE}
 # Extrahiere die Trefferraten für erotic
@@ -233,14 +232,14 @@ stichprobe <- pwr.t.test(d = .25,
 stichprobe
 ```
 
-3. Laut Poweranalyse wäre eine Stichprobe von 347 Individuen nötig. Versuche dies einmal mit der `plot.power.htest()`-Funktion zu visualisieren. Wende sie einfach auf das `stichprobe` Objekt an. 
+3. Laut Poweranalyse wäre eine Stichprobe von 347 Individuen nötig. Versuche dies einmal mit der `plot.power.htest()`-Funktion zu visualisieren. Wende sie einfach auf das `stichprobe`-Objekt an. 
 
 ```{r}
 # Stichprobe-Visualisierung
 plot.power.htest(stichprobe) 
 ```
 
-4. Mittels des Plots könnt ihr nun auch evaluieren, wie gross die Power von Bem's ursprünglicher Studie war. In Bem's `'erotic'` condition waren $r length(Trefferrate_erotic)$ Beobachtungen. Finde den entsprechenden Punkt auf der x-Achse und gehe dann nach oben um die dazugehörige Power zu finden. Alternativ kannst du nochmals die `pwr.t.test()` Funktion verwenden und anstatt `power` die Stichprobengrösse `n` definieren. Siehe Template.    
+4. Mittels des Plots kannst du nun auch evaluieren, wie gross die Power von Bem's ursprünglicher Studie war. In Bem's `'erotic'` condition waren $r length(Trefferrate_erotic)$ Beobachtungen. Finde den entsprechenden Punkt auf der x-Achse und gehe dann nach oben um die dazugehörige Power zu finden. Alternativ kannst du nochmals die `pwr.t.test()` Funktion verwenden und anstatt `power` die Stichprobengrösse `n` definieren. Siehe Template.    
 
 ```{r, echo = TRUE, eval = FALSE}
 # Bems post-hoc power
@@ -280,7 +279,6 @@ stichprobe
 
 6. Für einen kleinen Effekt, welchen man vielleicht höchstens erwarten würde für etwas so ungewöhnliches wie menschliche *psi*-Fähigkeiten, hatte Bem's Studie nur eine power von `17.4%` und die Stichprobe die für eine hohe power notwendig war lag oberhalb von 2000 Personen. Das bedeutet, dass Bem entweder wusste, dass er einen grösseren Effekt beobachten würde oder, dass er eher schlechte Studienplanung betrieben hat. 
 
-
 ### D - Konfidenzintervalle
 
 1. Konfidenzintervalle sind ein anderer Weg Signifikanztests durchzuführen, welcher eher auf Schätzung als auf Testung von Effekten beruht. Die grundlegende Idee ist, dass man die Schätzgrössen (z.B. Regressionsgewichte) nicht durch den Standardfehler teilt, sondern den Standardfehler verwendet um eine Spannweite um die Schätzgrössen aufzuspannen. Rechnen wir zunächst einen `t.test()` für abhängigen Stichproben für `psi1`, welcher die `Trefferrate` für die beiden `Bedingung`en vergleicht. 
@@ -308,7 +306,7 @@ psi_ttest
 psi_ttest$conf.int
 ```
 
-3. Das Konfidenezinterval für den Unterschied liegt zwischen zwischen `-6.84` und `.23`. Das Konfidenzintervalle enthält also die NUll. Das heisst, dass obgleich der Mittelwert für die Erotic-Bedingung signifikant von `50%` verschieden ist die beiden Bedingungen sich nicht signifikant unterscheiden. Beginne nun das Konfidenzintervall für den Unterschied der Gruppen nachzubauen. Extrahiere dafür zunächst den Unterschied, den entsprechenden Standardfehler, und die Freiheitsgrade. 
+3. Das Konfidenezinterval für den Unterschied liegt zwischen zwischen `-6.84` und `.23`. Das Konfidenzintervalle enthält also die Null. Das heisst, dass obgleich der Mittelwert für die Erotic-Bedingung signifikant von `50%` verschieden ist die beiden Bedingungen sich nicht signifikant unterscheiden. Beginne nun das Konfidenzintervall für den Unterschied der Gruppen nachzubauen. Extrahiere dafür zunächst den Unterschied, den entsprechenden Standardfehler, und die Freiheitsgrade. 
 
 ```{r, echo = TRUE}
 # Gewicht b und Standardfehler se
@@ -317,7 +315,7 @@ se <- psi_ttest$stderr
 df <- psi_ttest$parameter
 ```
 
-4. Jetzt benötigst du nur noch die entsprechenden t-Werte um das Konfidenzintervall aufzuspannen. Da das Konfidenzintervall in beide Richtungen zu gleichen Teilen aufgespannt werden soll suchen wir nicht den t-Wert für $1-\alpha$ sondern für $1-\frac{\alpha}{2}$ und $\frac{\alpha}{2}$, d.h., wir suchen die kritischen t-Werte für einen zweiseitigen Test mit $\alpha = .05$. Verwende das Template
+4. Jetzt benötigst du nur noch die entsprechenden <i>t</i>-Werte um das Konfidenzintervall aufzuspannen. Da das Konfidenzintervall in beide Richtungen zu gleichen Teilen aufgespannt werden soll suchen wir nicht den <i>t</i>-Wert für $1-\alpha$ sondern für $1-\frac{\alpha}{2}$ und $\frac{\alpha}{2}$, d.h., wir suchen die kritischen t-Werte für einen zweiseitigen Test mit $\alpha = .05$. Verwende das Template.
 
 ```{r, echo = TRUE, eval = FALSE}
 # Kritische t-Werte
@@ -331,7 +329,7 @@ t_.25 <- qt(p = .025, df = df)
 t_97.5 <- qt(p = .975, df = df)
 ```
 
-5. Schaue dir zunächst die beiden t-Werte an. Überrascht, dass es die selben Werte sind nur einmal positiv und einmal negativ? Das ergibt sich daraus, dass die t-Verteilung symmetrisch um Null liegt. Um nun damit das Konfidenzintervall zu berechnen verwende das Template unten. Es geht darum `t*se` nach oben und `t*se` nach unten vom Unterschied `delta` zu gehen. Denkt an die unterschiedlichen Vorzeichen der beiden t-Werte.
+5. Schaue dir zunächst die beiden <i>t</i>-Werte an. Überrascht, dass es die selben Werte sind nur einmal positiv und einmal negativ? Das ergibt sich daraus, dass die t-Verteilung symmetrisch um Null liegt. Um nun damit das Konfidenzintervall zu berechnen verwende das Template unten. Es geht darum `t*se` nach oben und `t*se` nach unten vom Unterschied `delta` zu gehen. Denk an die unterschiedlichen Vorzeichen der beiden t-Werte.
 
 ```{r, echo = TRUE, eval = FALSE}
 # confidence limits
@@ -345,7 +343,7 @@ delta_lower <- delta + t_.25 * se
 delta_upper <- delta + t_97.5 * se
 ```
 
-8. Jetzt könnt ihr eurer Konfidenzintervall mit dem aus dem t-Wert vergleichen. Ist es identisch?
+8. Jetzt kannst du das Konfidenzintervall mit dem aus dem <i>t</i>-Wert vergleichen. Ist es identisch?
 
 9. Probiere andere Konfidenzintervalle aus. Wie verändern sich dei Grenzen, wenn $\alpha = .01$ oder $\alpha = .1$, d.h., wenn die Konfidenzintervalle 99% bzw. 90% umspannen?
 

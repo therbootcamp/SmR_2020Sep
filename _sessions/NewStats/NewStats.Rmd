@@ -205,7 +205,7 @@ Siehe vergleichbare Studien in [**Medicine**](https://therbootcamp.github.io/SwR
 .pull-left4[
 
 <ul>
-  <li class="m1"><span>Die Grösse der Stichprobe sollte die nötige <high>Trennschärfe für das Detektieren eines Effekts ermöglichen</high></high></span></li>
+  <li class="m1"><span>Die Grösse der Stichprobe sollte die nötige <high>Trennschärfe für das Detektieren eines Effekts ermöglichen</high></high>.</span></li>
   <li class="m2"><span>Grössere Stichproben &rarr; <high>schmalere Stichprobenverteilungen</high> &rarr; höhere Trennschärfe.</span></li>
 </ul>
 

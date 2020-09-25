@@ -227,7 +227,7 @@ summary(wein_effekt)
 
 6. Die Kodierung hat ausgenommen die Skalierung des Regressionsgewichts und des zugehörigen Standardfehlers keinen Einfluss. <i>t</i>-Wert und Signifikanz sind identisch. Einzig der Intercept ändert sich wesentlich, da er unter der Effektkodierung tatsächlich weiter von Null entfernt ist.
 
-### C - Interaktionen
+### D - Interaktionen
 
 1. Der erste Abschnitt hat gezeigt, dass weisser Wein gegenüber Rotem bevorzugt wurde. Könnte dies daran liegen, dass nicht für andere Variablen kontrolliert wurde? Oder könnte es sein, dass dieser Unterschied nur unter bestimmten Bedingungen gilt, d.h., dass es Moderatoren für den Effekt der Farbe gibt? Rechne eine Regression die zusätzlich `Alkohol` mit aufnimmt und verknüpfe die Prädiktoren mit `*` sodass auch die Interaktion berücksichtigt wird.   
 

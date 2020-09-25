@@ -79,7 +79,7 @@ Am Ende dieses Practicals wirst du wissen, wie du:
 
 ### A - Setup
 
-1. Öffne dein `TheRBootcamp` R Project. Darin sollten bereits die Ordner `1_Data` und `2_Code` enthalten sein. Stelle sicher, dass die Datensätze, welche in der `Datensätze` Spalte gelistet sind in deinem `1_Data` Ordner vorhanden sind.
+1. Öffne dein `TheRBootcamp` R Project. 
 
 ```{r}
 # Gemacht!
@@ -123,12 +123,11 @@ tom <- tom %>% mutate_if(is.character, factor)
 schools <- schools %>% mutate_if(is.character, factor)
 ```
 
-
 ### B - Rechnen Eines Linearen Gemischten Modells
 
-Im ersten Teil dieses Practicals arbeiten wir mit dem `tom` Datensatz aus den Folien und testen die Wirkung des `zustand`s einer Person (`nuechtern`  vs. `betrunken`) auf ihre `tomatometer`-Bewertung.
+Im ersten Teil dieses Practicals arbeitest du  mit dem `tom` Datensatz aus den Folien um die Wirkung des `zustand`s einer Person (`nuechtern`  vs. `betrunken`) auf ihre `tomatometer`-Bewertung zu analysieren.
 
-1. Rechne ein Modell mit nur festen Effekten aus, in welchem du `tomatometers` mit dem `zustand` vorhersagst. Speichere das Ergebnis als `FE_mod` und schaue dir das Ergebnis an.
+1. Rechne ein Modell mit nur festen Effekten, in welchem du `tomatometers` mit dem `zustand` vorhersagst. Speichere das Ergebnis als `FE_mod` und schaue dir das Ergebnis an.
 
 ```{r, echo = TRUE, eval = FALSE}
 # Verwende lm, da lmer nur mit mindestens einem zufälligen Effekt funktioniert
@@ -148,7 +147,7 @@ FE_mod <- glm(formula = tomatometer ~ zustand,
 summary(FE_mod)
 ```
 
-2. Im Moment wird "betrunken" als Referenzkategorie verwendet, sodass der intercept den Mittelwert des Zustands "betrunken" angibt und der slope die Differenz der Mittelwerte der Bewertungen im Zustand "betrunken" und "nuechtern" angibt. Um ein intuitiveres Modell mit "nuechtern" als Referenzkategorie zu erhalten, können wir die Variable  `zustand` erneut in einen Faktor umwandeln und dabei diesmal die Abfolge der Levels bestimmen. Verwende dafür den untenstehenden Code.
+2. Im Moment wird `"betrunken"` als Referenzkategorie verwendet, sodass der intercept den Mittelwert des Zustands `"betrunken"` angibt und der slope die Differenz der Mittelwerte der Bewertungen im Zustand `"betrunken"` und `"nuechtern"` angibt. Um ein intuitiveres Modell mit `"nuechtern"` als Referenzkategorie zu erhalten, können wir die Variable  `zustand` erneut in einen Faktor umwandeln und dabei diesmal die Abfolge der Levels bestimmen. Verwende dafür den untenstehenden Code.
 
 ```{r, echo = TRUE}
 # Wandle die zustand variable in einen Faktor um, mit nuechtern als erstes Level
@@ -239,7 +238,7 @@ summary(FE_mod)
 # im Modell subj_RI_RS_mod  "nur" 51.81.
 ```
 
-11. Jeder Film wurde in beiden Zuständen Bewertet. Wir haben also nicht nur Abhängigkeiten in den Daten der Rater, sondern auch der Filme. Um für diese Abhängigkeit zu kontrollieren, können wir unser Modell aus der Aufgabe B10 mit weiteren zufälligen Effekten ausbauen. Füge Random Intercepts über `film` und Random Slopes für `zustand` über `film` zum Modell hinzu. Über das zusätzliche Argument `control` wird ein anderer Optimierungsalgorithmus spezifiert, mithilfe dessen das Modell konvergiert. Die details sollen uns für den Moment nicht kümmern; wir freuen uns einfach, dass das Modell konvergiert.
+11. Jeder Film wurde in beiden Zuständen bewertet. Wir haben also nicht nur Abhängigkeiten in den Daten der Rater, sondern auch der Filme. Um für diese Abhängigkeit zu kontrollieren, können wir unser Modell aus der Aufgabe B10 mit weiteren zufälligen Effekten ausbauen. Füge Random Intercepts über `film` und Random Slopes für `zustand` über `film` zum Modell hinzu. Über das zusätzliche Argument `control` wird ein anderer Optimierungsalgorithmus spezifiert, mithilfe dessen das Modell konvergiert. Die Details sollen uns für den Moment nicht kümmern; wir freuen uns einfach, dass das Modell konvergiert.
 
 ```{r echo = TRUE, eval = FALSE}
 # Gemischtes Modell mit random intercepts über ids und random slopes für zustand
